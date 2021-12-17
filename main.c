@@ -6,7 +6,7 @@
 /*   By: gbeauman <marvin@42lausanne.ch>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/07 12:05:05 by gbeauman          #+#    #+#             */
-/*   Updated: 2021/12/16 16:23:34 by gbeauman         ###   ########.fr       */
+/*   Updated: 2021/12/17 13:47:50 by gbeauman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include	"get_next_line.h"
@@ -17,7 +17,6 @@ int	main()
 	int		fd;
 
 	fd = open("text.txt", O_RDONLY);
-	get_next_line(fd);
 	get_next_line(fd);
 	get_next_line(fd);
 	return (0);
