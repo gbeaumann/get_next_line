@@ -6,7 +6,7 @@
 /*   By: gbeauman <marvin@42lausanne.ch>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/07 12:38:15 by gbeauman          #+#    #+#             */
-/*   Updated: 2021/12/17 14:02:42 by gbeauman         ###   ########.fr       */
+/*   Updated: 2021/12/21 17:14:51 by gbeauman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include	"get_next_line.h"
@@ -66,17 +66,18 @@ void	ft_separation(char *buffer)
 	static char	*post;
 	char	*combi;
 
-	pre = (char *) malloc(prelen(buffer) * sizeof(char));
+	pre = (char *) malloc(prelen(buffer) + 1 * sizeof(char));
 	while (buffer[i] && buffer[i] != '\n')
 	{
 		pre[i] = buffer[i];
 		i++;
 	}
+	pre[i] = '\0';
 	i++;
-	combi = (char *)malloc((prelen(buffer) + postlen(buffer, i) * sizeof(char)));
+	post = (char *) malloc(postlen(buffer, i) + 1 * sizeof(char));
+	combi = (char *)malloc((prelen(buffer) + 1 + postlen(buffer, i) + 1 * sizeof(char)));
 	combi = ft_join(pre, post, (prelen(buffer) + postlen(buffer, i)));
 	printf("%s\n", combi);
-	post = (char *) malloc(postlen(buffer, i) * sizeof(char));
 	while (buffer[i] != '\0' && buffer[i] != '\n')
 	{
 		post[i2] = buffer[i];
@@ -84,4 +85,5 @@ void	ft_separation(char *buffer)
 		i2++;
 	}
 	post[i2] = '\0';
+	printf ("%s\n" , post);
 }
