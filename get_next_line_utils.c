@@ -6,7 +6,7 @@
 /*   By: gbeauman <marvin@42lausanne.ch>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/07 12:38:15 by gbeauman          #+#    #+#             */
-/*   Updated: 2021/12/22 16:34:22 by gbeauman         ###   ########.fr       */
+/*   Updated: 2021/12/23 11:04:58 by gbeauman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include	"get_next_line.h"
@@ -76,7 +76,6 @@ static char	isretligne(char *stock)
 		return (0);
 	while (stock[i])
 		i++;
-	i--;
 //	write (1, &stock[i], 1); //test
 //	write (1, "\n", 1); //test
 	return (*&stock[i]);
@@ -109,11 +108,12 @@ void	ft_separation(char *buffer)
 	combi = (char *)malloc((prelen(buffer)  + postlen(buffer, i)  * sizeof(char)));
 	combi = ft_join(pre, stock, (prelen(buffer) + postlen(buffer, i)));
 	printf("%s\n", combi);
-	while (buffer[i] != '\0' && (buffer[i] != '\n' + 1))
+	while (buffer[i] != '\0' && (buffer[i] != '\n'))
 	{
 		post[i2] = buffer[i];
 		i++;
 		i2++;
 	}
+	post[i2] = '\n';
 //	printf ("%s", post);
 }
